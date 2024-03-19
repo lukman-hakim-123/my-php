@@ -1,0 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: mysql -u root -e "create database gitpod" && cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan serve
+  - command: php artisan migrate && php artisan serve
